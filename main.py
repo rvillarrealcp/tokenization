@@ -17,7 +17,8 @@ text_file.close()
 # For example: remove extra whitespace or punctuation symbols
 clean_story = re.sub(r'\s+', ' ', file_val).strip()  # Keep common sentence characters
 cleaner_story = re.sub(r' *\.', ".", clean_story)
-cleanest_story = re.sub(r'[^\w\.\s]', '', cleaner_story)
+cleanest_story = re.sub(r'</?div>|[^\w\.\s/:]', '', cleaner_story)
+cleanest_story = re.sub(r'\s+',' ', cleanest_story).strip()
 
 # 3. Tokenize the story into sentences
 # TODO: Replace the line below with a call to sent_tokenize
